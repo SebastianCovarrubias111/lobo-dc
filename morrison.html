@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jim Morrison - El Rey Lagarto & Poeta del Rock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Special+Elite&family=Cinzel:wght@700&display=swap');
+
+        :root {
+            --vintage-orange: #e76f51;
+            --psychedelic-yellow: #f4a261;
+            --retro-green: #2a9d8f;
+            --dark-purple: #264653;
+            --background-dark: #120914;
+            --text-cream: #f8f1e5;
+            --card-bg: #1e1322;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Special Elite', cursive, serif;
+            background-color: var(--background-dark);
+            color: var(--text-cream);
+            background-image: radial-gradient(var(--dark-purple) 20%, transparent 20%),
+                              radial-gradient(var(--vintage-orange) 20%, transparent 20%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* NAVEGACIÓN RETRO */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(18, 9, 20, 0.92);
+            border-bottom: 4px solid var(--vintage-orange);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-logo {
+            font-family: 'Shrikhand', cursive;
+            font-size: 2.2rem;
+            color: var(--psychedelic-yellow);
+            text-shadow: 3px 3px 0px var(--vintage-orange);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-cream);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--psychedelic-yellow);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            max-width: 1100px;
+            margin: 50px auto 70px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text {
+            background-color: rgba(30, 19, 34, 0.85);
+            border: 4px solid var(--psychedelic-yellow);
+            box-shadow: 12px 12px 0px var(--vintage-orange);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 3.5rem;
+            color: var(--psychedelic-yellow);
+            text-shadow: 3px 3px 0px var(--dark-purple);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--vintage-orange);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-banner-stack {
+            position: relative;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .hero-layer-bg {
+            position: absolute;
+            top: 15px;
+            left: -15px;
+            width: 100%;
+            height: 100%;
+            background-image: url('morrison-2.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--vintage-orange);
+            box-shadow: 8px 8px 0px #000;
+            transform: rotate(-4deg);
+            opacity: 0.7;
+            z-index: 1;
+            filter: sepia(60%);
+        }
+
+        .hero-main-card {
+            position: relative;
+            z-index: 2;
+            border: 5px solid var(--psychedelic-yellow);
+            box-shadow: 10px 10px 0px var(--dark-purple);
+            background-color: #000;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .hero-main-card img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.1);
+        }
+
+        /* FILOSOFÍA Y INFLUENCIAS */
+        .philosophy-section {
+            background-color: rgba(38, 70, 83, 0.9);
+            border-top: 4px solid var(--psychedelic-yellow);
+            border-bottom: 4px solid var(--psychedelic-yellow);
+            padding: 50px 20px;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .philosophy-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .philosophy-container h2 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 2.8rem;
+            color: var(--psychedelic-yellow);
+            margin-bottom: 20px;
+        }
+
+        .philosophy-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-cream);
+            border-left: 4px solid var(--vintage-orange);
+            border-right: 4px solid var(--vintage-orange);
+            padding: 15px 25px;
+            margin: 20px 0;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .influences-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            background-color: var(--vintage-orange);
+            color: #000;
+            font-weight: bold;
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 2px solid #000;
+            font-size: 0.95rem;
+        }
+
+        /* CATÁLOGOS / CRONOLOGÍA DE FACETAS */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Shrikhand', cursive;
+            font-size: 3.2rem;
+            color: var(--psychedelic-yellow);
+            text-shadow: 4px 4px 0px var(--vintage-orange);
+            display: inline-block;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .timeline-card {
+            background-color: var(--card-bg);
+            border: 4px solid var(--vintage-orange);
+            box-shadow: 8px 8px 0px var(--dark-purple);
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+        }
+
+        .timeline-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 12px 12px 0px var(--psychedelic-yellow);
+            border-color: var(--psychedelic-yellow);
+        }
+
+        .card-img-container {
+            height: 280px;
+            overflow: hidden;
+            border-bottom: 4px solid var(--vintage-orange);
+            background-color: #000;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .timeline-card:hover .card-img-container img {
+            transform: scale(1.08);
+        }
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .card-era {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--psychedelic-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-family: 'Shrikhand', cursive;
+            font-size: 2rem;
+            color: var(--vintage-orange);
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #d1c7bd;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        /* MODAL / LIGHTBOX */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 750px;
+            width: 100%;
+            background-color: var(--card-bg);
+            border: 4px solid var(--psychedelic-yellow);
+            box-shadow: 0 0 30px rgba(244, 162, 97, 0.5);
+            padding: 25px;
+            position: relative;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .modal-img {
+            max-width: 100%;
+            max-height: 55vh;
+            object-fit: contain;
+            border: 3px solid var(--vintage-orange);
+            margin-bottom: 15px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background-color: var(--vintage-orange);
+            color: #000;
+            font-weight: bold;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0a040b;
+            border-top: 4px solid var(--vintage-orange);
+            padding: 40px 20px;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--psychedelic-yellow);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <a href="#" class="nav-logo">JIM MORRISON</a>
+        <ul class="nav-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#filosofia">Ideología</a></li>
+            <li><a href="#cronologia">Etapas</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <h1>THE LIZARD KING</h1>
+            <div class="hero-subtitle">Poeta, Visión y Chamán del Rock de los 60s/70s</div>
+            <p>
+                "Si las puertas de la percepción se purificaran, todo se le aparecería al hombre como es: infinito." — William Blake.
+            </p>
+        </div>
+
+        <div class="hero-banner-stack">
+            <div class="hero-layer-bg"></div>
+            <div class="hero-main-card">
+                <img src="morrison-1.jpg" alt="Jim Morrison Principal" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Jim_Morrison_1969.citation.JPG'">
+            </div>
+        </div>
+    </section>
+
+    <!-- IDEOLOGÍA Y POETAS -->
+    <section class="philosophy-section" id="filosofia">
+        <div class="philosophy-container">
+            <h2>👁️ Ideología y Misticismo 👁️</h2>
+            <p>
+                Jim Morrison no se veía a sí mismo como una estrella de rock, sino como un **poeta chamánico**. Su meta era liberar a la audiencia de los límites impuestos por la sociedad mediante el misticismo, la poesía existencialista y la contracultura hippie de finales de los 60 e inicios de los 70.
+            </p>
+            <div class="philosophy-quote">
+                "Me veo a mí mismo como un cometa ardiente, una estrella fugaz. Todo el mundo se detiene, señala y exclama ¡oh, miren eso! Luego... me he ido."
+            </div>
+            <p><strong>Sus principales influencias literarias y filosóficas:</strong></p>
+            <div class="influences-tags">
+                <span class="tag">Arthur Rimbaud</span>
+                <span class="tag">William Blake</span>
+                <span class="tag">Friedrich Nietzsche</span>
+                <span class="tag">Aldous Huxley</span>
+                <span class="tag">Generación Beat</span>
+                <span class="tag">Chamanismo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRONOLOGÍA DE SUS 5 FACETAS -->
+    <section id="cronologia">
+        <div class="section-header">
+            <h2 class="section-title">⚡ LAS 5 FACETAS DE JIM MORRISON ⚡</h2>
+        </div>
+
+        <div class="timeline-grid">
+
+            <!-- FACETA 1 -->
+            <article class="timeline-card" onclick="openModal('morrison-1.jpg', 'El Poeta Universitario (1964 - 1965)', 'Estudiante de cine en UCLA, sumergido en la literatura, la poesía y la filosofía existencialista antes de fundar The Doors.')">
+                <div class="card-img-container">
+                    <img src="morrison-1.jpg" alt="Jim Morrison Joven" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Jim_Morrison_1969.citation.JPG'">
+                </div>
+                <div class="card-content">
+                    <div class="card-era">Etapa 1 | 1964 - 1965</div>
+                    <h3 class="card-title">1. El Poeta Joven</h3>
+                    <p class="card-text">Estudiante de cine en UCLA con aspecto introvertido. Pasaba sus días escribiendo cuadernos de poesía en las playas de Venice, Los Ángeles, donde conoció a Ray Manzarek para formar The Doors.</p>
+                </div>
+            </article>
+
+            <!-- FACETA 2 -->
+            <article class="timeline-card" onclick="openModal('morrison-2.jpg', 'El Rey Lagarto (1967 - 1968)', 'La época dorada con pantalones de cuero, voz hipnótica y el ascenso mundial como ícono del rock psicodélico.')">
+                <div class="card-img-container">
+                    <img src="morrison-2.jpg" alt="Jim Morrison Rey Lagarto" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Jim_Morrison_1969.citation.JPG'">
+                </div>
+                <div class="card-content">
+                    <div class="card-era">Etapa 2 | 1967 - 1968</div>
+                    <h3 class="card-title">2. El Rey Lagarto</h3>
+                    <p class="card-text">La cima del éxito masivo. Con pantalones de cuero y un aura de dios griego, lideró las listas de éxitos con álbumes como <em>The Doors</em> y <em>Strange Days</em>, convirtiéndose en el símbolo sexual y lírico de la época.</p>
+                </div>
+            </article>
+
+            <!-- FACETA 3 -->
+            <article class="timeline-card" onclick="openModal('morrison-3.jpg', 'El Chamán del Escenario (1968 - 1969)', 'Conciertos convertidos en rituales psicodélicos, improvizaciones líricas e incidentes con las autoridades.')">
+                <div class="card-img-container">
+                    <img src="morrison-3.jpg" alt="Jim Morrison Chamán" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Jim_Morrison_1969.citation.JPG'">
+                </div>
+                <div class="card-content">
+                    <div class="card-era">Etapa 3 | 1968 - 1969</div>
+                    <h3 class="card-title">3. El Chamán Performático</h3>
+                    <p class="card-text">Sus conciertos dejaron de ser presentaciones musicales para transformarse en ritos psicodélicos. Llevaba a la multitud al límite, desafiando a la policía y buscando la liberación espiritual del público.</p>
+                </div>
+            </article>
+
+            <!-- FACETA 4 -->
+            <article class="timeline-card" onclick="openModal('morrison-4.jpg', 'Últimos Días en París (1971)', 'Alejado de los escenarios, con barba densa y dedicado a escribir poesía en las calles de París.')">
+                <div class="card-img-container">
+                    <img src="morrison-4.jpg" alt="Jim Morrison en París" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Jim_Morrison_1969.citation.JPG'">
+                </div>
+                <div class="card-content">
+                    <div class="card-era">Etapa 4 | 1971</div>
+                    <h3 class="card-title">4. El Poeta Anónimo</h3>
+                    <p class="card-text">Cansado de la fama y los problemas judiciales, se dejó crecer la barba y se mudó a París con Pamela Courson para dedicarse exclusivamente a escribir. Vivió allí sus últimos meses en relativo anonimato.</p>
+                </div>
+            </article>
+
+            <!-- FACETA 5 -->
+            <article class="timeline-card" onclick="openModal('morrison-5.jpg', 'Eternidad en Père Lachaise (París)', 'Su tumba en el mítico cementerio parisino, santuario de peregrinación de poetas y fanáticos del rock.')">
+                <div class="card-img-container">
+                    <img src="morrison-5.jpg" alt="Tumba de Jim Morrison" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Jim_Morrison_1969.citation.JPG'">
+                </div>
+                <div class="card-content">
+                    <div class="card-era">Etapa 5 | Leyenda Eterna</div>
+                    <h3 class="card-title">5. Peregrinaje en París</h3>
+                    <p class="card-text">Falleció el 3 de julio de 1971 a los 27 años. Fue enterrado en el cementerio Père Lachaise junto a Oscar Wilde y Edith Piaf. Su lápida reza en griego: <em>KATA TON DAIMONA EAUTOU</em> (Fiel a su propio espíritu).</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- MODAL PARA VER IMÁGENES -->
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-close" onclick="closeModal()">✕</div>
+            <img id="modalImg" class="modal-img" src="" alt="Ampliación">
+            <h3 id="modalTitle" style="font-family: 'Shrikhand', cursive; font-size: 2rem; color: var(--psychedelic-yellow);"></h3>
+            <p id="modalDesc" style="color: #ccc; margin-top: 10px; font-size: 0.95rem;"></p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Tributo a <strong>Jim Morrison & The Doors</strong> | Psicodelia & Poesía de los 70s</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Alojado 24/7 en GitHub Pages</p>
+    </footer>
+
+    <!-- INTERACTIVIDAD -->
+    <script>
+        const cards = document.querySelectorAll('.timeline-card');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                    }, index * 120);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => observer.observe(card));
+
+        function openModal(imgSrc, title, desc) {
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
